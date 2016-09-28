@@ -1,0 +1,66 @@
+
+<html>
+<head>
+<style>
+#score{
+    background-color:lightsteelblue;
+    color:white;
+    padding:10px;
+    }
+#count{
+    background-color:lightcyan;
+    padding:10px;
+    }
+    #description{
+        background-color: aqua;
+        padding:10px;
+        display:none;
+    }
+    </style>
+<title> 
+    
+</title>    
+</head>
+<body>
+
+
+Search <input type= "text" id='searchbox'>  
+<br>
+<br>
+<input type='submit' onclick="getReddit(document.getElementById('searchbox').value)"> 
+
+<script type ='template/handlebars' id="reddit-template">
+    {{#each data}}
+     <h2>Title: {{data.title}} </h2>
+     <button id='button1' onclick="showDiv()"> Show Description </button>
+    <div id='score'> Score: {{data.score}} </div> 
+   
+    <div id='count'> Count: {{data.num_comments}} </div>
+ 
+    <div id= 'score'> Archive: 
+    {{#if data.archived}} 
+    Archived
+ {{else}}
+    Not Archived
+    {{/if}}
+    </div> 
+    <div id='description'>{{selftext}}</div>
+    {{else}}
+		<p> Nothing found. </p>
+
+    {{/each}}
+ 
+</script>
+
+<div id="response"> 
+    
+</div>
+     <div id='description'></div>
+<script src="handlebars-v4.0.5.js"></script>    
+<script src="jquery-3.1.0.js"></script>
+<script src='main3.js'> </script>
+
+    
+</body>
+
+</html>
